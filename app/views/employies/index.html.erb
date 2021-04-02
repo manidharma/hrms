@@ -1,0 +1,123 @@
+<body style="background-color: #dee9ff">
+<% if user_signed_in? %>
+<h1>Employies</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">photo</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone number</th>
+      <th scope="col">Email</th>
+      <th scope="col">Date of birth</th>
+      <th scope="col">Address</th>
+      <th scope="col">Certificate</th>
+      <th scope="col">Adharproof</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody style="text-align:center;vertical-align:center;" class="tablematter">
+    <% @employies.each do |employie| %>
+    <tr>
+      <th scope="row">@</th>
+      <td><%= image_tag (employie.image), style:"width:100px;height:140"%>
+      </td>
+      <td style="padding-top: 40px;"><%= employie.name %></td>
+      <td style="padding-top: 40px;"><%= employie.phone_num %></td>
+      <td style="padding-top: 40px;"><%= employie.email %></td>
+      <td style="padding-top: 40px;"><%= employie.date_of_birth %></td>
+      <td><%= employie.address %><br>
+        <%= employie.address1 %><br>
+        <%= employie.city %><br>
+        <%= employie.pincode %></td>
+      <td ><%= image_tag (employie.certificate), style:"width:100px;height:140" %></td>
+      <td><%= image_tag (employie.proof), style:"width:100px;height:140" %></td>
+      <td style="padding-top: 40px;"><%= link_to 'Show', employie, class:"btn btn-secondary btn-sm" %></td>
+      <td style="padding-top: 40px;"><%= link_to 'Edit', edit_employie_path(employie), class:"btn btn-secondary btn-sm" %></td>
+      <td style="padding-top: 40px;"><%= link_to 'Destroy', employie, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-sm" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+  <header class="masthead text-center text-white">
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">One Page Wonder</h1>
+        <h2 class="masthead-subheading mb-0">Will Rock Your Socks Off</h2>
+        <%= link_to 'Log in', new_user_session_path , class:"btn btn-primary btn-xl rounded-pill mt-5" %>
+      </div>
+    </div>
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <%= image_tag '01.jpg', class:"img-fluid rounded-circle"%>
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">For those about to rock...</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="p-5">
+            <%= image_tag '02.jpg', class:"img-fluid rounded-circle"%>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-5">
+            <h2 class="display-4">We salute you!</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5">
+            <%= image_tag '03.jpg', class:"img-fluid rounded-circle"%>
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Let there be rock!</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">Copyright &copy; Novastrid 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+<% end %>

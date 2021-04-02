@@ -1,0 +1,128 @@
+<head><style>
+  #employie_date_of_birth_1i{
+    border-bottom:1px solid grey;
+    border-left:none;
+    border-right: none;
+    border-top:none;    
+    color:#727372;
+  }
+  #employie_date_of_birth_2i{
+    border-bottom:1px solid grey;
+    border-left:none;
+    border-right: none;
+    border-top:none;    
+    color:#727372;
+  }
+  #employie_date_of_birth_3i{
+    border-bottom:1px solid grey;
+    border-left:none;
+    border-right: none;
+    border-top:none;    
+    color:#727372;
+  }
+
+</style></head>
+<%= form_with(model: employie, :html => { :multipart => true }) do |form| %>
+  <% if employie.errors.any? %>
+    <div id="error_explanation">
+      <h2 style="color:white"><%= pluralize(employie.errors.count, "error") %> prohibited this employie from being saved:</h2>
+
+      <ul>
+        <% employie.errors.each do |error| %>
+          <li style="color:white"><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<!------ Include the above in your HEAD tag ---------->
+
+<section class="testimonial py-5" id="testimonial">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4 py-5 bg-primary text-white text-center ">
+                <div class=" ">
+                    <div class="card-body">
+                        <img src="http://www.ansonika.com/mavia/img/registration_bg.svg" style="width:30%">
+                        <h2 class="py-3">Registration</h2>
+                        <p>A registration form is a form with a list of fields that require a user to input data to be submitted to an individual, a company, or an organization. There are numerous reasons relating to why a registration form is needed, but the primary reason is for documentation purposes.
+
+</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 py-5 border">
+                <h4 class="pb-4">Please fill with your details</h4>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                          <%= form.text_field :name,class:"form-control", placeholder:"Full name" %>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <%= form.email_field :email,class:"form-control",placeholder:"example@gmail.com" %>
+                        </div>
+                      </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <%= form.number_field :phone_num,class:"form-control",placeholder:"Phone number" %>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <%= form.date_select :date_of_birth %>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <%= form.text_field :address,class:"form-control",placeholder:"Street address" %>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <%= form.text_field :address1,class:"form-control",placeholder:"Area address" %>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <%= form.text_field :city,class:"form-control",placeholder:"City" %>
+                        </div>
+                        <div class="form-group col-md-6">
+                          <%= form.text_field :pincode,class:"form-control",placeholder:"Pincode" %>
+                        </div>
+                        <div class="form-group col-md-12">
+                           <%= form.label :image %> <%= form.file_field :image, class:"form-control" %>
+                        </div>
+                        <div class="form-group col-md-12">
+                           <%= form.label :certificate %> <%= form.file_field :certificate, class:"form-control" %>
+                        </div>
+                        <div class="form-group col-md-12">
+                           <%= form.label :proof %> <%= form.file_field :proof, class:"form-control" %>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-group">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+                                  <label class="form-check-label" for="invalidCheck2">
+                                    <small>By clicking Submit, you agree to our Terms & Conditions, Visitor Agreement and Privacy Policy.</small>
+                                  </label>
+                                </div>
+                              </div>
+                    
+                          </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="actions" style="text-align: center">
+                        <%= form.submit :Submit, class:"btn btn-success btn-sm", style:"width:150px" %>
+                        <%= link_to 'Back', employies_path, class:"btn btn-secondary btn-sm" %>
+                          </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</section>
+<% end %>
+        
